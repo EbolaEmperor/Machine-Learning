@@ -1,0 +1,11 @@
+SRC = src\acllib.c
+INCLUDE_DIR = src
+LIB = gdi32 ole32 oleaut32 uuid winmm msimg32
+
+all : main data
+
+main :
+	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
+
+data :
+	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
